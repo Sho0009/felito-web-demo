@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Felito LLC — Design Demos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", "Noto Sans JP", sans-serif;
+      background: #0d0d0d;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    header {
+      padding: 40px 64px;
+      border-bottom: 1px solid #222;
+    }
+    .logo {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: #aaa;
+    }
+    .logo span { color: #fff; }
+
+    main {
+      flex: 1;
+      padding: 80px 64px;
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .intro {
+      margin-bottom: 72px;
+    }
+    .intro h1 {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .intro p {
+      font-size: 14px;
+      color: #666;
+      letter-spacing: 0.05em;
+    }
+
+    .demos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: #1a1a1a;
+      border: 1px solid #1a1a1a;
+    }
+
+    .demo-card {
+      background: #111;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: background 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .demo-card:hover { background: #161616; }
+    .demo-card:hover .demo-card__arrow { opacity: 1; transform: translate(0, 0); }
+
+    .demo-card__num {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: #444;
+    }
+
+    .demo-card__accent {
+      width: 24px;
+      height: 2px;
+      border-radius: 0;
+    }
+    .demo-card--weekday .demo-card__accent { background: #111111; border: 1px solid #555; }
+    .demo-card--tearoom .demo-card__accent { background: #2d4a3e; }
+    .demo-card--stans   .demo-card__accent { background: #0057ff; }
+    .demo-card--nutrad  .demo-card__accent { background: #e0e0e0; }
+
+    .demo-card__name {
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: #fff;
+    }
+
+    .demo-card__desc {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+    }
+
+    .demo-card__tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .tag {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      padding: 3px 10px;
+      border: 1px solid #2a2a2a;
+      color: #666;
+    }
+
+    .demo-card__link {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid #1e1e1e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .demo-card__link span {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: #444;
+    }
+    .demo-card__arrow {
+      font-size: 18px;
+      color: #666;
+      opacity: 0;
+      transform: translate(-4px, 4px);
+      transition: opacity 0.25s, transform 0.25s;
+    }
+
+    footer {
+      padding: 32px 64px;
+      border-top: 1px solid #1a1a1a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer p { font-size: 11px; color: #333; letter-spacing: 0.08em; }
+
+    @media (max-width: 768px) {
+      header { padding: 28px 24px; }
+      main { padding: 48px 24px; }
+      .demos { grid-template-columns: 1fr; }
+      .demo-card { padding: 32px 28px; }
+      footer { padding: 24px; flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <p class="logo"><span>Felito LLC</span> — Design Demos</p>
+  </header>
+
+  <main>
+    <div class="intro">
+      <h1>Corporate Site<br>Design Concepts</h1>
+      <p>4つのデザインコンセプト比較 / BizDev派遣</p>
+    </div>
+
+    <div class="demos">
+
+      <a class="demo-card demo-card--weekday" href="weekday/">
+        <div class="demo-card__num">01</div>
+        <div class="demo-card__accent"></div>
+        <h2 class="demo-card__name">Weekday</h2>
+        <p class="demo-card__desc">モノトーン・ラグジュアリー。欧文大型ディスプレイタイポグラフィと純白背景で洗練されたファッション系エージェンシーの世界観。</p>
+        <div class="demo-card__tags">
+          <span class="tag">Monochrome</span>
+          <span class="tag">Luxury</span>
+          <span class="tag">Display Type</span>
+        </div>
+        <div class="demo-card__link">
+          <span>weekday/</span>
+          <span class="demo-card__arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="demo-card demo-card--tearoom" href="tearoom/">
+        <div class="demo-card__num">02</div>
+        <div class="demo-card__accent"></div>
+        <h2 class="demo-card__name">Tearoom</h2>
+        <p class="demo-card__desc">日本美学・静謐。抹茶グリーン×和紙色、明朝体見出し、縦書き装飾。茶文化の「間」を体現した格調高いデザイン。</p>
+        <div class="demo-card__tags">
+          <span class="tag">Japanese</span>
+          <span class="tag">Serif</span>
+          <span class="tag">Matcha Green</span>
+        </div>
+        <div class="demo-card__link">
+          <span>tearoom/</span>
+          <span class="demo-card__arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="demo-card demo-card--stans" href="stans/">
+        <div class="demo-card__num">03</div>
+        <div class="demo-card__accent"></div>
+        <h2 class="demo-card__name">Stans</h2>
+        <p class="demo-card__desc">ダーク×カラフルアクセント。Blue / Orange / Green のマルチアクセントと格子テクスチャでクリエイティブエージェンシーの専門性を表現。</p>
+        <div class="demo-card__tags">
+          <span class="tag">Dark</span>
+          <span class="tag">Creative</span>
+          <span class="tag">Multi Accent</span>
+        </div>
+        <div class="demo-card__link">
+          <span>stans/</span>
+          <span class="demo-card__arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="demo-card demo-card--nutrad" href="nutrad/">
+        <div class="demo-card__num">04</div>
+        <div class="demo-card__accent"></div>
+        <h2 class="demo-card__name">Nutrad</h2>
+        <p class="demo-card__desc">ミニマル・プレミアム。アクセントカラーなし、128pxの超余白、フルスクリーンオーバーレイメニュー。写真が主役の職人的世界観。</p>
+        <div class="demo-card__tags">
+          <span class="tag">Minimal</span>
+          <span class="tag">Premium</span>
+          <span class="tag">Whitespace</span>
+        </div>
+        <div class="demo-card__link">
+          <span>nutrad/</span>
+          <span class="demo-card__arrow">↗</span>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Felito LLC. All rights reserved.</p>
+    <p>Design Demo — Internal Use</p>
+  </footer>
+
+</body>
+</html>
