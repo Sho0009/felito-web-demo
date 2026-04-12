@@ -583,6 +583,40 @@ img { display: block; width: 100%; }
   color: var(--color-disabled);
 }
 
+/* ── Actual images ── */
+.hero__img,
+.hero__cell-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.work__img-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.work__card:hover .work__img-photo {
+  transform: scale(1.04);
+}
+
+.img-portrait {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+
+.img-square {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
 /* ── Fade in animation ── */
 .fade {
   opacity: 0;
