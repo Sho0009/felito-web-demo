@@ -3,264 +3,394 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Felito LLC — Design Demos</title>
+  <title>Felito LLC — BizDev派遣</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: "Inter", "Noto Sans JP", sans-serif;
-      background: #0d0d0d;
-      color: #ffffff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    a { text-decoration: none; color: inherit; }
-
-    header {
-      padding: 40px 64px;
-      border-bottom: 1px solid #222;
-    }
-    .logo {
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      color: #aaa;
-    }
-    .logo span { color: #fff; }
-
-    main {
-      flex: 1;
-      padding: 80px 64px;
-      max-width: 1280px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .intro {
-      margin-bottom: 72px;
-    }
-    .intro h1 {
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 300;
-      letter-spacing: -0.01em;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-    .intro p {
-      font-size: 14px;
-      color: #666;
-      letter-spacing: 0.05em;
-    }
-
-    .demos {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-      background: #1a1a1a;
-      border: 1px solid #1a1a1a;
-    }
-
-    .demo-card {
-      background: #111;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      transition: background 0.25s;
-      position: relative;
-      overflow: hidden;
-    }
-    .demo-card:hover { background: #161616; }
-    .demo-card:hover .demo-card__arrow { opacity: 1; transform: translate(0, 0); }
-
-    .demo-card__num {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      color: #444;
-    }
-
-    .demo-card__accent {
-      width: 24px;
-      height: 2px;
-      border-radius: 0;
-    }
-    .demo-card--weekday .demo-card__accent { background: #111111; border: 1px solid #555; }
-    .demo-card--tearoom .demo-card__accent { background: #2d4a3e; }
-    .demo-card--stans   .demo-card__accent { background: #0057ff; }
-    .demo-card--nutrad  .demo-card__accent { background: #e0e0e0; }
-    .demo-card--atelier .demo-card__accent { background: #f5f4f1; border: 1px solid #dddddd; }
-
-    .demo-card__name {
-      font-size: 22px;
-      font-weight: 400;
-      letter-spacing: 0.02em;
-      color: #fff;
-    }
-
-    .demo-card__desc {
-      font-size: 13px;
-      color: #666;
-      line-height: 1.8;
-      letter-spacing: 0.04em;
-    }
-
-    .demo-card__tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-top: 4px;
-    }
-    .tag {
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      padding: 3px 10px;
-      border: 1px solid #2a2a2a;
-      color: #666;
-    }
-
-    .demo-card__link {
-      margin-top: auto;
-      padding-top: 20px;
-      border-top: 1px solid #1e1e1e;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .demo-card__link span {
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      color: #444;
-    }
-    .demo-card__arrow {
-      font-size: 18px;
-      color: #666;
-      opacity: 0;
-      transform: translate(-4px, 4px);
-      transition: opacity 0.25s, transform 0.25s;
-    }
-
-    footer {
-      padding: 32px 64px;
-      border-top: 1px solid #1a1a1a;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    footer p { font-size: 11px; color: #333; letter-spacing: 0.08em; }
-
-    @media (max-width: 768px) {
-      header { padding: 28px 24px; }
-      main { padding: 48px 24px; }
-      .demos { grid-template-columns: 1fr; }
-      .demo-card { padding: 32px 28px; }
-      footer { padding: 24px; flex-direction: column; gap: 8px; }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <p class="logo"><span>Felito LLC</span> — Design Demos</p>
-  </header>
-
-  <main>
-    <div class="intro">
-      <h1>Corporate Site<br>Design Concepts</h1>
-      <p>4つのデザインコンセプト比較 / BizDev派遣</p>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">Felito</a>
+      <ul class="nav__links">
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#works">Results</a></li>
+        <li><a href="#company">Company</a></li>
+        <li><a href="contact/">Contact</a></li>
+      </ul>
+      <button class="nav__hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <div class="demos">
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu__close" id="mobileClose">close</button>
+    <a href="#philosophy" class="mobile-link">Philosophy</a>
+    <a href="#services"   class="mobile-link">Services</a>
+    <a href="#works"      class="mobile-link">Results</a>
+    <a href="#company"    class="mobile-link">Company</a>
+    <a href="contact/" class="mobile-link">Contact</a>
+  </div>
 
-      <a class="demo-card demo-card--weekday" href="weekday/">
-        <div class="demo-card__num">01</div>
-        <div class="demo-card__accent"></div>
-        <h2 class="demo-card__name">Weekday</h2>
-        <p class="demo-card__desc">モノトーン・ラグジュアリー。欧文大型ディスプレイタイポグラフィと純白背景で洗練されたファッション系エージェンシーの世界観。</p>
-        <div class="demo-card__tags">
-          <span class="tag">Monochrome</span>
-          <span class="tag">Luxury</span>
-          <span class="tag">Display Type</span>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__grid">
+      <div class="hero__cell hero__cell--main">
+        <img src="images/hero-main.png" alt="Felito LLC — BizDev派遣" class="hero__img">
+        <div class="hero__caption">
+          <p class="hero__caption-text">
+            事業の構想を、<br>現実に変える。
+          </p>
+          <p class="hero__caption-sub">BizDev派遣 — Felito LLC</p>
         </div>
-        <div class="demo-card__link">
-          <span>weekday/</span>
-          <span class="demo-card__arrow">↗</span>
-        </div>
-      </a>
-
-      <a class="demo-card demo-card--tearoom" href="tearoom/">
-        <div class="demo-card__num">02</div>
-        <div class="demo-card__accent"></div>
-        <h2 class="demo-card__name">Tearoom</h2>
-        <p class="demo-card__desc">日本美学・静謐。抹茶グリーン×和紙色、明朝体見出し、縦書き装飾。茶文化の「間」を体現した格調高いデザイン。</p>
-        <div class="demo-card__tags">
-          <span class="tag">Japanese</span>
-          <span class="tag">Serif</span>
-          <span class="tag">Matcha Green</span>
-        </div>
-        <div class="demo-card__link">
-          <span>tearoom/</span>
-          <span class="demo-card__arrow">↗</span>
-        </div>
-      </a>
-
-      <a class="demo-card demo-card--stans" href="stans/">
-        <div class="demo-card__num">03</div>
-        <div class="demo-card__accent"></div>
-        <h2 class="demo-card__name">Stans</h2>
-        <p class="demo-card__desc">ダーク×カラフルアクセント。Blue / Orange / Green のマルチアクセントと格子テクスチャでクリエイティブエージェンシーの専門性を表現。</p>
-        <div class="demo-card__tags">
-          <span class="tag">Dark</span>
-          <span class="tag">Creative</span>
-          <span class="tag">Multi Accent</span>
-        </div>
-        <div class="demo-card__link">
-          <span>stans/</span>
-          <span class="demo-card__arrow">↗</span>
-        </div>
-      </a>
-
-      <a class="demo-card demo-card--nutrad" href="nutrad/">
-        <div class="demo-card__num">04</div>
-        <div class="demo-card__accent"></div>
-        <h2 class="demo-card__name">Nutrad</h2>
-        <p class="demo-card__desc">ミニマル・プレミアム。アクセントカラーなし、128pxの超余白、フルスクリーンオーバーレイメニュー。写真が主役の職人的世界観。</p>
-        <div class="demo-card__tags">
-          <span class="tag">Minimal</span>
-          <span class="tag">Premium</span>
-          <span class="tag">Whitespace</span>
-        </div>
-        <div class="demo-card__link">
-          <span>nutrad/</span>
-          <span class="demo-card__arrow">↗</span>
-        </div>
-      </a>
-
-      <a class="demo-card demo-card--atelier" href="corporate/">
-        <div class="demo-card__num">05</div>
-        <div class="demo-card__accent"></div>
-        <h2 class="demo-card__name">Atelier Monogoto</h2>
-        <p class="demo-card__desc">ミニマリスト・自然志向。純白背景×明朝体見出し、グリッドギャラリー、極限の余白。建築設計事務所の静謐さを体現した写真主役のデザイン。</p>
-        <div class="demo-card__tags">
-          <span class="tag">Minimal</span>
-          <span class="tag">Natural</span>
-          <span class="tag">Gallery Grid</span>
-        </div>
-        <div class="demo-card__link">
-          <span>corporate/</span>
-          <span class="demo-card__arrow">↗</span>
-        </div>
-      </a>
-
+      </div>
+      <div class="hero__cell hero__cell--sub"><img src="images/hero-sub-1.png" alt="" class="hero__cell-img"></div>
+      <div class="hero__cell hero__cell--sub2"><img src="images/hero-sub-2.png" alt="" class="hero__cell-img"></div>
     </div>
-  </main>
+  </section>
 
-  <footer>
-    <p>&copy; 2024 Felito LLC. All rights reserved.</p>
-    <p>Design Demo — Internal Use</p>
+  <!-- Philosophy -->
+  <section class="section" id="philosophy">
+    <div class="container">
+      <div class="split fade">
+        <div class="split__text">
+          <p class="section__label">Philosophy</p>
+          <h2 class="section__heading">
+            「実務家」不足が、<br>
+            事業の可能性を<br>
+            閉じている。
+          </h2>
+          <div class="body-text">
+            <p>会社経営には変化が求められています。しかし現場は日々の業務で手一杯です。新規事業を前に進めるために必要な「実務を担う人」が、どの組織にも足りていません。</p>
+            <p>Felitoは、その空白に立ちます。経営者・事業責任者のビジョンを受け取り、計画に落とし込み、関係者を巻き込み、実行まで主体として動く——それが私たちの役割です。</p>
+          </div>
+          <a href="#services" class="link-arrow">支援内容を見る →</a>
+        </div>
+        <div class="split__visual">
+          <img src="images/philosophy.png" alt="" class="img-portrait">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Distinction -->
+  <section class="section section--surface">
+    <div class="container">
+      <div style="max-width:640px; margin:0 auto; text-align:center;" class="fade">
+        <p class="section__label" style="text-align:center;">Difference</p>
+        <h2 class="section__heading" style="text-align:center; max-width:none;">
+          戦略だけで終わらない。<br>
+          実務の「主担当」として動く。
+        </h2>
+        <p class="section__body" style="max-width:none; text-align:center;">
+          戦略コンサルやCOO代行のような伴走支援モデルとは異なります。Felitoは代理店 × BPO として、事業計画策定から外注先選定、ディレクションまでを一気通貫で支援します。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="fade">
+        <p class="section__label">Services</p>
+        <h2 class="section__heading">支援内容</h2>
+      </div>
+      <div class="services__grid fade">
+        <div class="service__item">
+          <span class="service__num">01</span>
+          <h3 class="service__title">戦略策定 /<br>事業計画策定</h3>
+          <p class="service__body">社長・事業責任者のパートナーとして、事業戦略・事業計画を立案。注力テーマの選定から実行計画まで一貫して担当します。</p>
+          <a href="#contact" class="link-arrow" style="margin-top:auto; align-self:flex-start;">相談する →</a>
+        </div>
+        <div class="service__item">
+          <span class="service__num">02</span>
+          <h3 class="service__title">ベンダーマネジメント /<br>PMO</h3>
+          <p class="service__body">外部委託先の選定・管理からプロジェクト全体のマネジメントまで。複雑な関係者間の調整を一元化し、事業を前に進めます。</p>
+          <a href="#contact" class="link-arrow" style="margin-top:auto; align-self:flex-start;">相談する →</a>
+        </div>
+        <div class="service__item">
+          <span class="service__num">03</span>
+          <h3 class="service__title">社内折衝 /<br>研修・説明会</h3>
+          <p class="service__body">変化を嫌う現場への丁寧な折衝と巻き込みを実施。経営と現場の橋渡し役として機能し、組織全体で動ける状態をつくります。</p>
+          <a href="#contact" class="link-arrow" style="margin-top:auto; align-self:flex-start;">相談する →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results / Works Grid -->
+  <section class="section section--surface" id="works">
+    <div class="container">
+      <div class="works__intro fade">
+        <div>
+          <p class="section__label">Results</p>
+          <h2 class="section__heading" style="margin-bottom:0;">支援実績</h2>
+        </div>
+        <a href="#contact" class="link-arrow">お問い合わせ →</a>
+      </div>
+      <div class="works__grid fade">
+
+        <a class="work__card" href="#contact">
+          <div class="work__img">
+            <img src="images/work-01-amazon-ec.png" alt="Amazon EC 新商品発売" class="work__img-photo">
+          </div>
+          <div class="work__info">
+            <p class="work__title">Amazon EC 新商品発売</p>
+            <p class="work__meta">ナショナルクライアント / 新規事業開発 / 2024.11</p>
+          </div>
+        </a>
+
+        <a class="work__card" href="#contact">
+          <div class="work__img">
+            <img src="images/work-02-product-dev.png" alt="中小企業 商品開発支援" class="work__img-photo">
+          </div>
+          <div class="work__info">
+            <p class="work__title">中小企業 商品開発支援</p>
+            <p class="work__meta">製造業 / 商品企画・PMO / 2024</p>
+          </div>
+        </a>
+
+        <a class="work__card" href="#contact">
+          <div class="work__img">
+            <img src="images/work-03-dx.png" alt="DX推進プロジェクト" class="work__img-photo">
+          </div>
+          <div class="work__info">
+            <p class="work__title">DX推進プロジェクト</p>
+            <p class="work__meta">サービス業 / デジタル化支援 / 2023–2024</p>
+          </div>
+        </a>
+
+        <a class="work__card" href="#contact">
+          <div class="work__img">
+            <img src="images/work-04-startup.png" alt="新規事業立ち上げ支援" class="work__img-photo">
+          </div>
+          <div class="work__info">
+            <p class="work__title">新規事業立ち上げ支援</p>
+            <p class="work__meta">スタートアップ / 事業計画策定 / 2023</p>
+          </div>
+        </a>
+
+        <a class="work__card" href="#contact">
+          <div class="work__img">
+            <img src="images/work-05-food.png" alt="販路拡大・拡販支援" class="work__img-photo">
+          </div>
+          <div class="work__info">
+            <p class="work__title">販路拡大・拡販支援</p>
+            <p class="work__meta">食品メーカー / 営業戦略 / 2024</p>
+          </div>
+        </a>
+
+        <a class="work__card" href="#contact">
+          <div class="work__img">
+            <img src="images/work-06-training.png" alt="社内変革・研修プログラム" class="work__img-photo">
+          </div>
+          <div class="work__info">
+            <p class="work__title">社内変革・研修プログラム</p>
+            <p class="work__meta">大手企業 / 組織改革 / 2023</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section">
+    <div class="container">
+      <div class="split fade">
+        <div class="split__visual">
+          <img src="images/process.png" alt="" class="img-square">
+        </div>
+        <div class="split__text">
+          <p class="section__label">Process</p>
+          <h2 class="section__heading">
+            キックオフから<br>リリースまで。
+          </h2>
+          <p class="section__body" style="max-width:none; margin-bottom:0;">
+            想定支援期間は6か月〜1年程度。事業責任者のパートナーとして事業戦略・事業計画を立案し、注力テーマを決定します。その後、市場調査・リソース調達・プロジェクト管理を担当し、商品リリースまでプロジェクトの主体として支援します。
+          </p>
+          <div class="process__list">
+            <div class="process__item">
+              <span class="process__step">01</span>
+              <span class="process__name">戦略・計画策定</span>
+            </div>
+            <div class="process__item">
+              <span class="process__step">02</span>
+              <span class="process__name">リソース調達・体制構築</span>
+            </div>
+            <div class="process__item">
+              <span class="process__step">03</span>
+              <span class="process__name">プロジェクト管理・実行</span>
+            </div>
+            <div class="process__item">
+              <span class="process__step">04</span>
+              <span class="process__name">リリース・拡販支援</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Result (highlight) -->
+  <section class="section section--surface">
+    <div class="container">
+      <div class="result__wrap fade">
+        <div class="result__left">
+          <p class="section__label">Featured</p>
+          <div class="result__large-num">Amazon<br>EC 発売</div>
+          <div class="result__divider"></div>
+          <p class="result__large-label">2024年11月 / ナショナルクライアント</p>
+        </div>
+        <div class="result__right">
+          <span class="result__tag">新規事業開発</span>
+          <h3 class="result__title">
+            限られたリソースの中で、<br>
+            新商品の発売を実現。
+          </h3>
+          <div class="result__body">
+            <p>全国規模の販路網・生産体制を持つナショナルクライアントにおける新規事業開発を支援。既存事業のリソースを新規事業検討に転換するハードルが高く、限られたリソースの中での事業価値検証が課題でした。</p>
+            <p>Felitoはキックオフから参画し、検討論点の整理・スケジュール設定・タスク管理・事業責任者の相談役として実務を主導。2024年11月にAmazon ECサイトでの商品発売を実現し、その後の拡販フェーズも契約継続となりました。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company -->
+  <section class="section" id="company">
+    <div class="container">
+      <div class="split fade">
+        <div class="split__text">
+          <p class="section__label">Company</p>
+          <h2 class="section__heading">中山田 明</h2>
+          <p class="company__role">代表社員 / CEO — 合同会社 Felito</p>
+          <div class="body-text">
+            <p>2017年より医療系スタートアップに勤務し、M&Sの予実管理体制構築や事業企画業務に従事。データビジネス事業の立ち上げを経験し、年商億単位に寄与。</p>
+            <p>2023年9月に合同会社Felitoを設立。ナショナルクライアントの新規事業開発支援から、中小企業の商品開発・DX支援まで幅広く担当。</p>
+          </div>
+          <p class="company__career">製薬メーカー &nbsp;|&nbsp; 総合コンサルファーム &nbsp;|&nbsp; 福祉ベンチャー</p>
+          <table class="company__table">
+            <tr><th>会社名</th><td>合同会社 Felito（Felito LLC）</td></tr>
+            <tr><th>代表</th><td>中山田 明</td></tr>
+            <tr><th>設立</th><td>2023年9月</td></tr>
+            <tr><th>事業内容</th><td>新規事業開発支援 / BizDev派遣 / DX支援</td></tr>
+          </table>
+        </div>
+        <div class="split__visual">
+          <img src="images/company-portrait.png" alt="中山田 明 — 代表社員" class="img-portrait">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section--surface" id="contact">
+    <div class="container">
+      <div class="contact__inner fade">
+        <p class="section__label" style="text-align:center;">Contact</p>
+        <h2 class="contact__title">
+          まずは、<br>お気軽にご相談ください。
+        </h2>
+        <p class="contact__body">
+          貴社の状況をヒアリングし、支援可能かどうかを無料でご確認いただけます。現在の課題や構想をお話しいただくだけで構いません。
+        </p>
+        <a href="contact/" class="btn">お問い合わせはこちら</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__logo">Felito LLC</p>
+        <nav class="footer__nav">
+          <a href="#philosophy">Philosophy</a>
+          <a href="#services">Services</a>
+          <a href="#works">Results</a>
+          <a href="#company">Company</a>
+          <a href="contact/">Contact</a>
+        </nav>
+      </div>
+      <p class="footer__copy">&copy; 2024 Felito LLC. All rights reserved.</p>
+    </div>
   </footer>
 
+  <script>
+    /* ── Nav scroll ── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('nav--scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    /* ── Mobile menu ── */
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+
+    hamburger.addEventListener('click', () => mobileMenu.classList.add('is-open'));
+    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('is-open'));
+    mobileMenu.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('is-open'));
+    });
+
+    /* ── Hero parallax on scroll ── */
+    const heroCaption = document.querySelector('.hero__caption');
+    if (heroCaption) {
+      window.addEventListener('scroll', () => {
+        heroCaption.style.transform = `translateY(${window.scrollY * 0.18}px)`;
+      }, { passive: true });
+    }
+
+    /* ── Works grid stagger ── */
+    const worksGrid = document.querySelector('.works__grid');
+    if (worksGrid) {
+      const cards = worksGrid.querySelectorAll('.work__card');
+      const gridObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            cards.forEach((card, i) => {
+              card.style.transitionDelay = `${i * 0.08}s`;
+              setTimeout(() => card.classList.add('is-visible'), i * 80);
+            });
+            gridObserver.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.05 });
+      gridObserver.observe(worksGrid);
+    }
+
+    /* ── Work card hover overlay ── */
+    document.querySelectorAll('.work__card').forEach(card => {
+      const overlay = document.createElement('div');
+      overlay.className = 'work__hover-overlay';
+      const titleEl = card.querySelector('.work__title');
+      const metaEl  = card.querySelector('.work__meta');
+      overlay.innerHTML = `
+        <p class="work__overlay-title">${titleEl ? titleEl.textContent : ''}</p>
+        <p class="work__overlay-meta">${metaEl ? metaEl.textContent : ''}</p>
+      `;
+      card.querySelector('.work__img').appendChild(overlay);
+    });
+
+    /* ── Fade in ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
